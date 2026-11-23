@@ -2,7 +2,7 @@
 
 Scores of real FrameOS frames, per board and per FrameOS build: every
 release, and the dev builds between them. The charts are at
-**<https://frameos.github.io/frameos-benchmarks/>** (`index.html`).
+**<https://bench.frameos.net/>** (`index.html`).
 
 The bench that makes these numbers lives in the FrameOS repo,
 [`tools/frame-bench`](https://github.com/FrameOS/frameos/tree/main/tools/frame-bench).
@@ -83,3 +83,12 @@ Clone this repo beside your frameos checkout (`../frameos-benchmarks`, or set
 `$FRAMEOS_BENCHMARKS`). A finished `tools/frame-bench/bench.py run` adds
 its rows to `data/`. Then run `bench.py html`, and commit and push here,
 saying in the message which build was run and why.
+
+## The page
+
+<https://bench.frameos.net/> is this repo served as it stands by a Cloudflare
+Worker with static assets (`wrangler.jsonc`; `.assetsignore` keeps `.git` and
+the config out). Cloudflare's Workers Builds deploys every push to `main`
+(deploy command `npx wrangler deploy`, no build step), so pushing a run is
+publishing it. By hand: `npx wrangler deploy` from a checkout logged in to the
+FrameOS Cloudflare account.

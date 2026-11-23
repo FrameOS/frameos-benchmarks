@@ -1,0 +1,12 @@
+{
+  // bench.frameos.net: this repo as it stands, served as static assets by a
+  // Worker. Cloudflare's Workers Builds deploys it on every push to main
+  // (deploy command `npx wrangler deploy`, no build step).
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "frameos-benchmarks",
+  "compatibility_date": "2026-11-24",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "bench.frameos.net", "custom_domain": true }],
+  "assets": { "directory": "." }
+}
