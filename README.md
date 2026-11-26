@@ -66,6 +66,7 @@ the bench. Builds with only some suites run, so no FrameOS score, are in
 
 What a run showed, per release, beyond the numbers:
 
+- [2026.11.15](findings/2026.11.15.md): the release on every frame on the rig, both Raspberry Pis included (the Pi 5 for the first time), full run, 2026-11-25. The Pi Zero W +33 % with no crash, E1003 +6 %. The Pi 5 died with SIGSEGV after backend pushes (ORC: the boot generation's scene graph freed on the runner), the Sudoku sample never drew on an ESP32 (a JS stack overflow), and a push that restarts a Pi cut its own reply off; fixed in frameos#1062, #1063, #1065.
 - [main ad692482e](findings/2026.11.14-main-ad692482e.md): every ESP32 on the rig, full run, 2026-11-25. About 50 KB more internal RAM on every board, and E1003/E1004 boot 3×/1.6× faster. Sketchbook runs out of memory on the AMOLED with its saved drawing. The E1003's scene switcher ignores drags. Idle e-paper boards stop pulling after a settings restart. The bench double-counts ESP32 boots.
 - [2026.11.14](findings/2026.11.14.md): the release; no crash and no fail on any board in a full run; FrameOS score +16 to +41 % over 2026.11.13 on the e-paper boards, S3 image 23.5 KB smaller; the internal RAM floor fell further after the candidate (E1002 down to 8 KB).
 - [2026.11.14 candidate, main ff6a5b9d5](findings/2026.11.14-rc.md): no crash and no fail on any board in a full run; CPU +19–30 % (JSON 2–2.7× faster); E1003 graphics 2.5×; fixes for the E1004's pack and fit, text borders, gradients, the E1002's canvas and the Sticky's tap latency.
